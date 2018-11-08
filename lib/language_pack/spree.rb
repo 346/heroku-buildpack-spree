@@ -22,6 +22,7 @@ class LanguagePack::Spree < LanguagePack::Rails5
       f.puts <<-GEMFILE
 gem 'spree', :path => '.'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'master'
+gem 'spree_analytics_trackers', github: 'spree-contrib/spree_analytics_trackers'
       GEMFILE
     end
 
@@ -41,6 +42,7 @@ RUBY
   def run_assets_precompile_rake_task
     run_command "bundle exec rails g spree:install --auto-accept --user_class=Spree::User --enforce_available_locales=true --migrate=false --sample=false --seed=false --copy_views=false"
     run_command "bundle exec rails g spree:auth:install --migrate=false"
+    run_command "bundle exec rails g spree_analytics_trackers:install --auto_run_migrations=y"
     super
   end
 
