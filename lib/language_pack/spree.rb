@@ -9,7 +9,7 @@ class LanguagePack::Spree < LanguagePack::Rails5
 
   def compile
     run_command 'git init -q'
-    run_command 'gem install --user-install --no-ri --no-rdoc railties'
+    run_command 'gem install --user-install --no-ri --no-rdoc --version 5.2.1 railties'
     run_command 'gem install --user-install --no-ri --no-rdoc bundler'
 
     rails_path = `ruby -e "gem 'railties'; puts Gem.bin_path('railties', 'rails')"`.strip
