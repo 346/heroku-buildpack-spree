@@ -20,6 +20,7 @@ class LanguagePack::Spree < LanguagePack::Rails5
 
     File.open("Gemfile", 'a') do |f|
       f.puts <<-GEMFILE
+gem 'railties', '5.2.1'
 gem 'spree', :path => '.'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: 'master'
 gem 'spree_analytics_trackers', github: 'spree-contrib/spree_analytics_trackers'
